@@ -1,0 +1,31 @@
+[project]
+name = "teleport-cam"
+version = "0.1.0"
+description = "Gesture-triggered teleport effects for your Mac webcam, via a virtual camera."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "opencv-python>=4.9",
+    "mediapipe>=0.10.14",
+    "pyvirtualcam>=0.12",
+    "numpy>=1.26",
+    "pillow>=10",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff"]
+
+[project.scripts]
+teleport-cam = "teleport_cam.app:main"
+
+[tool.setuptools]
+packages = ["teleport_cam"]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
